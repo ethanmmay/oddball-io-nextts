@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import { Advent_Pro, Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
+import DevJoke from './api/devjoke'
 
 const inter = Inter({ subsets: ['latin'] })
 const advpro = Advent_Pro({
@@ -10,11 +10,10 @@ const advpro = Advent_Pro({
 })
 
 
-
 export default function Home() {
 
-    function getQotd() {
-        console.log("Retrieved Quote of the Day")
+    function getDevJoke() {
+        console.log("Tried to retrieve a Joke")
     }
 
     return (
@@ -29,8 +28,16 @@ export default function Home() {
                 <div className={styles.description}>
                     <span className={advpro.className}>Oddboard</span>
                 </div>
-                <button onClick={getQotd}>Quote of the Day</button>
+                <button onClick={getDevJoke}>Joke of the Day</button>
+                <h2 id="joke"></h2>
             </main>
         </>
+    )
+}
+
+Home.addJoke = function addJoke(home: Function) {
+    return (
+        //<DevJoke >{home}</DevJoke>
+        ''
     )
 }
